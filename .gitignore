@@ -1,0 +1,15 @@
+# data, weights and outputs (see DATA.md and scripts/download_data.sh)
+/data
+/test_datasets
+/pretrain
+/uniprot_fasta
+/uniprot_sequences.json
+/save
+/results
+/checkpoints
+*.pt
+*.lmdb
+
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

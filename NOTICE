@@ -1,0 +1,34 @@
+CausalBind includes code derived from the following open-source projects.
+The derived files keep their original copyright headers and remain under
+their original licenses.
+
+- HypSeek (https://github.com/jianhuiwemi/HypSeek), marked as MIT-licensed
+  in its README. CausalBind extends the HypSeek three-branch retrieval model,
+  loss, and training/testing tasks (unimol/models/three_hybrid_model*.py,
+  unimol/models/lorentz.py, unimol/losses/, unimol/tasks/).
+
+- LigUnity (https://github.com/IDEA-XL/LigUnity), code released under the
+  Apache License 2.0. HypSeek builds on the LigUnity training and evaluation
+  pipeline. The LigUnity data resources are released under CC BY-NC 4.0 and
+  are not redistributed in this repository.
+
+- Uni-Mol (https://github.com/deepmodeling/Uni-Mol), MIT License,
+  Copyright (c) DP Technology. Files under unimol/data/ and unimol/models/
+  carrying "Copyright (c) DP Technology" headers.
+
+- Uni-Core (https://github.com/dptech-corp/Uni-Core), MIT License, used as the
+  training framework (installed separately).
+
+- MERU (https://github.com/facebookresearch/meru), Copyright (c) Meta
+  Platforms, Inc. and affiliates, released under the Creative Commons
+  Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0).
+  The hyperbolic-geometry utilities unimol/models/lorentz.py,
+  unimol/losses/lorentz.py, and unimol/models/distributed.py originate from
+  MERU (inherited through HypSeek) and remain under CC BY-NC 4.0; they may
+  not be used for commercial purposes.
+
+- fairseq (https://github.com/facebookresearch/fairseq), MIT License,
+  Copyright (c) Facebook, Inc. and its affiliates, for unimol/data/dictionary.py.
+
+Pretrained weights (Uni-Mol encoders, ESM-2) and all datasets are downloaded
+from their original providers and are subject to their own terms.
