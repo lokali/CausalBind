@@ -149,7 +149,7 @@ To evaluate a single checkpoint directly: `bash scripts/test.sh <variant> <DUDE|
 
 ## Training
 
-Each run trains for 50 epochs on 4 GPUs with CASF-2016 as the validation set. The variant name selects the configuration reported in the paper.
+All models are trained for 50 epochs on four NVIDIA A100 (80GB) GPUs, with a per-GPU batch size of 24 (global batch size 96), the Adam optimizer with learning rate 1e-4, polynomial decay and warmup ratio 0.06, fp16 mixed precision, and CASF-2016 as the validation set; one run takes about 5–6 hours. The variant name selects the configuration reported in the paper.
 
 ```bash
 bash scripts/train.sh sp       # CausalBind-SP
