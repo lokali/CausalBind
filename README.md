@@ -128,17 +128,7 @@ bash scripts/quick_start.sh              # all variants: sp lr emb atom
 bash scripts/quick_start.sh sp           # or a subset
 ```
 
-The checkpoints are saved to `checkpoints/`, the logs to `results/quick_start/<variant>/{DUDE,PCBA}.log`, and the script finishes by printing a summary of the results:
-
-```
-Method            | DUD-E AUROC / BEDROC / EF@1%   | LIT-PCBA AUROC / BEDROC / EF@1%
-------------------------------------------------------------------------------------
-CausalBind-SP     | 0.935 / 0.744 / 47.69          | 0.639 / 0.097 / 8.56
-CausalBind-LR     | 0.935 / 0.704 / 44.87          | 0.632 / 0.103 / 8.84
-CausalBind-EMB    | 0.938 / 0.744 / 48.00          | 0.623 / 0.089 / 7.61
-CausalBind-ATOM   | 0.943 / 0.768 / 49.66          | 0.621 / 0.079 / 6.25
-```
-
+The checkpoints are saved to `checkpoints/`, the logs to `results/quick_start/<variant>/{DUDE,PCBA}.log`, and the script finishes by printing a summary of the results. The checkpoints and their results are listed in the [v1.0 release](https://github.com/lokali/CausalBind/releases/tag/v1.0).
 
 | Checkpoint             | Variant         |  Size  | Download                                                                     |
 | ---------------------- | --------------- | :----: | ---------------------------------------------------------------------------- |
