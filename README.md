@@ -121,28 +121,31 @@ bash scripts/download_data.sh test       # CASF and benchmark index files, DEKOI
 
 ## Quick Start: Reproduce Table 1 with Released Checkpoints
 
-We release the trained checkpoints of the four CausalBind variants (the last checkpoint of each run, model weights only, 571 MB each for SP/LR/ATOM). After installing the environment and downloading the pretrained backbones and test benchmarks (see [Data](#data)), one command downloads the checkpoints and evaluates them on DUD-E and LIT-PCBA on a single GPU:
+We release the trained checkpoints of the four CausalBind variants (the last checkpoint of each run, model weights only). After installing the environment and downloading the pretrained backbones and test benchmarks (see [Data](#data)), one command downloads the checkpoints and evaluates them on DUD-E and LIT-PCBA on a single GPU:
 
 ```bash
 bash scripts/quick_start.sh              # all variants: sp lr emb atom
 bash scripts/quick_start.sh sp           # or a subset
 ```
 
-The checkpoints are saved to `checkpoints/`, the logs to `results/quick_start/<variant>/{DUDE,PCBA}.log`, and the script finishes by printing a summary of the results reported in Table 1:
+The checkpoints are saved to `checkpoints/`, the logs to `results/quick_start/<variant>/{DUDE,PCBA}.log`, and the script finishes by printing a summary of the results:
 
 ```
 Method            | DUD-E AUROC / BEDROC / EF@1%   | LIT-PCBA AUROC / BEDROC / EF@1%
 ------------------------------------------------------------------------------------
 CausalBind-SP     | 0.935 / 0.744 / 47.69          | 0.639 / 0.097 / 8.56
 CausalBind-LR     | 0.935 / 0.704 / 44.87          | 0.632 / 0.103 / 8.84
+CausalBind-EMB    | 0.938 / 0.744 / 48.00          | 0.623 / 0.089 / 7.61
 CausalBind-ATOM   | 0.943 / 0.768 / 49.66          | 0.621 / 0.079 / 6.25
 ```
+
+The SP, LR, and ATOM checkpoints are the runs reported in Table 1 and reproduce its results. The original CausalBind-EMB checkpoint of Table 1 is no longer available, so we release a checkpoint retrained with the identical configuration and seed (`bash scripts/train.sh emb`). Multi-GPU fp16 training is not bit-wise deterministic, so retrained models differ from run to run; the DUD-E results match closely, while LIT-PCBA, with only 15 targets and few actives per target, varies more across runs (see the multi-seed results in Table 2 of the paper, e.g., EMB LIT-PCBA EF@1% 9.52 ± 0.96).
 
 | Checkpoint             | Variant         |  Size  | Download                                                                     |
 | ---------------------- | --------------- | :----: | ---------------------------------------------------------------------------- |
 | `causalbind_sp.pt`   | CausalBind-SP   | 571 MB | [GitHub release v1.0](https://github.com/lokali/CausalBind/releases/tag/v1.0) |
 | `causalbind_lr.pt`   | CausalBind-LR   | 571 MB | [GitHub release v1.0](https://github.com/lokali/CausalBind/releases/tag/v1.0) |
-| `causalbind_emb.pt`  | CausalBind-EMB  |   –   | [GitHub release v1.0](https://github.com/lokali/CausalBind/releases/tag/v1.0) |
+| `causalbind_emb.pt`  | CausalBind-EMB  | 279 MB | [GitHub release v1.0](https://github.com/lokali/CausalBind/releases/tag/v1.0) |
 | `causalbind_atom.pt` | CausalBind-ATOM | 571 MB | [GitHub release v1.0](https://github.com/lokali/CausalBind/releases/tag/v1.0) |
 
 To evaluate a single checkpoint directly: `bash scripts/test.sh <variant> <DUDE|PCBA> checkpoints/causalbind_<variant>.pt <results_dir>`. Your own training checkpoints can be exported to the same compact format with `python tools/export_checkpoint.py <checkpoint_last.pt> <output.pt> --variant <variant>`.
