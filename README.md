@@ -139,7 +139,6 @@ CausalBind-EMB    | 0.938 / 0.744 / 48.00          | 0.623 / 0.089 / 7.61
 CausalBind-ATOM   | 0.943 / 0.768 / 49.66          | 0.621 / 0.079 / 6.25
 ```
 
-The SP, LR, and ATOM checkpoints are the runs reported in Table 1 and reproduce its results. The original CausalBind-EMB checkpoint of Table 1 is no longer available, so we release a checkpoint retrained with the identical configuration and seed (`bash scripts/train.sh emb`). Multi-GPU fp16 training is not bit-wise deterministic, so retrained models differ from run to run; the DUD-E results match closely, while LIT-PCBA, with only 15 targets and few actives per target, varies more across runs (see the multi-seed results in Table 2 of the paper, e.g., EMB LIT-PCBA EF@1% 9.52 ± 0.96).
 
 | Checkpoint             | Variant         |  Size  | Download                                                                     |
 | ---------------------- | --------------- | :----: | ---------------------------------------------------------------------------- |
@@ -161,6 +160,15 @@ bash scripts/train.sh emb      # CausalBind-EMB
 bash scripts/train.sh atom     # CausalBind-ATOM
 bash scripts/train.sh hypseek  # reproduced HypSeek baseline
 ```
+
+Results of training from scratch with this repository (seed 1, last checkpoint):
+
+| Variant | DUD-E AUROC / BEDROC / EF@1% | LIT-PCBA AUROC / BEDROC / EF@1% |
+|---|---|---|
+| CausalBind-SP | 0.937 / 0.725 / 46.94 | 0.612 / 0.073 / 5.65 |
+| CausalBind-LR | 0.939 / 0.739 / 47.10 | 0.616 / 0.085 / 6.98 |
+| CausalBind-EMB | 0.938 / 0.744 / 48.00 | 0.623 / 0.089 / 7.61 |
+| CausalBind-ATOM | 0.946 / 0.780 / 50.36 | 0.626 / 0.089 / 6.86 |
 
 Usage: `bash scripts/train.sh <variant> [save_root=./save] [seed=1]`. Checkpoints are written to `<save_root>/causalbind_<variant>_seed<seed>/savedir/` and the training log to `<save_root>/train_log/`. Set `N_GPU` and `MASTER_PORT` to change the number of GPUs or the rendezvous port.
 
