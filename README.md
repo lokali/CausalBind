@@ -7,6 +7,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/NeurIPS%202026-Oral-8A2BE2.svg" alt="NeurIPS 2026 Oral"/>
+  <a href="https://arxiv.org/abs/2610.07340"><img src="https://img.shields.io/badge/arXiv-2610.07340-b31b1b.svg" alt="arXiv"/></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"/></a>
   <a href="https://huggingface.co/LokaLi/CausalBind"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow.svg" alt="Hugging Face Models"/></a>
 </p>
@@ -18,7 +19,7 @@
 Dense alignment versus sparse binding. (a) Retrieval-based virtual screening methods align every protein feature with every molecule feature in a shared embedding space, entangling binding-relevant signals with nuisance correlations. (b) Real binding is governed by a small contact interface and a handful of key local interactions such as hydrogen bonds, hydrophobic contacts, salt bridges, and π stacking.
 </em></p>
 
-This is the official implementation of **CausalBind** (NeurIPS 2026, **Oral**).
+This is the official implementation of **CausalBind** (NeurIPS 2026, **Oral**). Paper: [arXiv:2610.07340](https://arxiv.org/abs/2610.07340).
 
 ## Overview
 
@@ -223,7 +224,8 @@ If you find CausalBind useful in your research, please consider citing:
   title     = {CausalBind: Causal Modeling and Learning for Protein-Molecule Virtual Screening},
   author    = {Li, Loka and Tian, Jin and Zhang, Kun},
   booktitle = {Advances in Neural Information Processing Systems},
-  year      = {2026}
+  year      = {2026},
+  url       = {https://arxiv.org/abs/2610.07340}
 }
 ```
 
