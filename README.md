@@ -8,6 +8,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/NeurIPS%202026-Oral-8A2BE2.svg" alt="NeurIPS 2026 Oral"/>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"/></a>
+  <a href="https://huggingface.co/LokaLi/CausalBind"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow.svg" alt="Hugging Face Models"/></a>
 </p>
 
 <p align="center">
@@ -128,14 +129,14 @@ bash scripts/quick_start.sh              # all variants: sp lr emb atom
 bash scripts/quick_start.sh sp           # or a subset
 ```
 
-The checkpoints are saved to `checkpoints/`, the logs to `results/quick_start/<variant>/{DUDE,PCBA}.log`, and the script finishes by printing a summary of the results. The checkpoints and their results are listed in the [v1.0 release](https://github.com/lokali/CausalBind/releases/tag/v1.0).
+The checkpoints are saved to `checkpoints/`, the logs to `results/quick_start/<variant>/{DUDE,PCBA}.log`, and the script finishes by printing a summary of the results. The checkpoints are hosted on [Hugging Face](https://huggingface.co/LokaLi/CausalBind) (`hf download LokaLi/CausalBind --local-dir checkpoints`) and mirrored in the [GitHub v1.0 release](https://github.com/lokali/CausalBind/releases/tag/v1.0), which also lists their results.
 
-| Checkpoint             | Variant         |  Size  | Download                                                                     |
-| ---------------------- | --------------- | :----: | ---------------------------------------------------------------------------- |
-| `causalbind_sp.pt`   | CausalBind-SP   | 571 MB | [GitHub release v1.0](https://github.com/lokali/CausalBind/releases/tag/v1.0) |
-| `causalbind_lr.pt`   | CausalBind-LR   | 571 MB | [GitHub release v1.0](https://github.com/lokali/CausalBind/releases/tag/v1.0) |
-| `causalbind_emb.pt`  | CausalBind-EMB  | 279 MB | [GitHub release v1.0](https://github.com/lokali/CausalBind/releases/tag/v1.0) |
-| `causalbind_atom.pt` | CausalBind-ATOM | 571 MB | [GitHub release v1.0](https://github.com/lokali/CausalBind/releases/tag/v1.0) |
+| Checkpoint             | Variant         |  Size  | Download |
+| ---------------------- | --------------- | :----: | -------- |
+| `causalbind_sp.pt`   | CausalBind-SP   | 571 MB | [Hugging Face](https://huggingface.co/LokaLi/CausalBind/blob/main/causalbind_sp.pt) · [GitHub](https://github.com/lokali/CausalBind/releases/tag/v1.0) |
+| `causalbind_lr.pt`   | CausalBind-LR   | 571 MB | [Hugging Face](https://huggingface.co/LokaLi/CausalBind/blob/main/causalbind_lr.pt) · [GitHub](https://github.com/lokali/CausalBind/releases/tag/v1.0) |
+| `causalbind_emb.pt`  | CausalBind-EMB  | 279 MB | [Hugging Face](https://huggingface.co/LokaLi/CausalBind/blob/main/causalbind_emb.pt) · [GitHub](https://github.com/lokali/CausalBind/releases/tag/v1.0) |
+| `causalbind_atom.pt` | CausalBind-ATOM | 571 MB | [Hugging Face](https://huggingface.co/LokaLi/CausalBind/blob/main/causalbind_atom.pt) · [GitHub](https://github.com/lokali/CausalBind/releases/tag/v1.0) |
 
 To evaluate a single checkpoint directly: `bash scripts/test.sh <variant> <DUDE|PCBA> checkpoints/causalbind_<variant>.pt <results_dir>`. Your own training checkpoints can be exported to the same compact format with `python tools/export_checkpoint.py <checkpoint_last.pt> <output.pt> --variant <variant>`.
 

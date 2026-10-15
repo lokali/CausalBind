@@ -12,7 +12,8 @@ cd "${REPO_DIR}"
 
 variants=("$@")
 [ ${#variants[@]} -eq 0 ] && variants=(sp lr emb atom)
-CKPT_URL="${CKPT_URL:-https://github.com/lokali/CausalBind/releases/download/v1.0}"
+# Hugging Face; the GitHub mirror is https://github.com/lokali/CausalBind/releases/download/v1.0
+CKPT_URL="${CKPT_URL:-https://huggingface.co/LokaLi/CausalBind/resolve/main}"
 RESULTS="${RESULTS:-results/quick_start}"
 mkdir -p checkpoints "${RESULTS}"
 
